@@ -1,3 +1,49 @@
+# Example for vmware/clarity issue https://github.com/vmware/clarity/issues/5985
+
+Try it out with `yarn test`
+
+This repo was created with `npx create-react-app cds-select-test --template typescript`
+Additional setup is the minimum necessary to test a `CdsSelect`.
+
+`ExampleCdsSelect.tsx` is the simple component that renders a `CdsSelect`.
+`ExampleCdsSelect.test.tsx` shows the issue when rendering a `CdsSelect` in a test.
+
+Note that the example test isn't interacting with or even querying the `CdsSelect` in any way, it's enough to simply be rendered in an *async* test.
+
+Resulting test output:
+
+```
+ FAIL  src/ExampleCdsSelect.test.tsx
+  CdsSelect
+    ✕ can be used in a component that is tested (113 ms)
+
+  ● CdsSelect › can be used in a component that is tested
+
+    TypeError: 'set' on proxy: trap returned falsish for property 'disabled'
+
+      at forEach (node_modules/src/internal/utils/lit.ts:29:24)
+          at Array.forEach (<anonymous>)
+      at syncProps (node_modules/src/internal/utils/lit.ts:29:10)
+      at HTMLElement.updated (node_modules/src/forms/control/control.element.ts:205:9)
+      at HTMLElement._$didUpdate [as _$AE] (node_modules/@lit/reactive-element/src/reactive-element.ts:1156:10)
+      at HTMLElement.performUpdate (node_modules/@lit/reactive-element/src/reactive-element.ts:1139:12)
+      at HTMLElement.scheduleUpdate (node_modules/@lit/reactive-element/src/reactive-element.ts:1058:17)
+      at HTMLElement._$EC (node_modules/@lit/reactive-element/src/reactive-element.ts:1030:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        4.276 s, estimated 5 s
+Ran all test suites related to changed files.
+```
+
+
+
+-----
+# Below is the boilerplate Create React App readme
+-----
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
