@@ -5,8 +5,9 @@ Try it out with `yarn test`
 This repo was created with `npx create-react-app cds-select-test --template typescript`
 Additional setup is the minimum necessary to test a `CdsSelect`.
 
-`ExampleCdsSelect.tsx` is the simple component that renders a `CdsSelect`.
-`ExampleCdsSelect.test.tsx` shows the issue when rendering a `CdsSelect` in a test.
+[ExampleCdsSelect.tsx](https://github.com/dturcotte/cds-select-test/blob/main/src/ExampleCdsSelect.tsx) is the simple component that renders a `CdsSelect`.
+
+[ExampleCdsSelect.test.tsx](https://github.com/dturcotte/cds-select-test/blob/main/src/ExampleCdsSelect.test.tsx) shows the issue when rendering a `CdsSelect` in a test.
 
 Note that the example test isn't interacting with or even querying the `CdsSelect` in any way, it's enough to simply be rendered in an *async* test.
 
